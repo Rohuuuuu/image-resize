@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "npm install -g concurrently nodemon vite",
     "server": "nodemon index.js",
-    "build-client": "cd client && npm run build",
+    "build-client": "cd client && npm run dev",
     "start": "concurrently \"npm run server\" \"npm run build-client\""
   },
   "keywords": [],
@@ -29,6 +29,6 @@
   "devDependencies": {
     "concurrently": "^9.1.2",
     "nodemon": "^3.1.9",
-    "vite": "^6.0.7"
+    "vite": "^4.5.5"
   }
 }
