@@ -77,7 +77,7 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "index.html"));
 });
-app.use("api",createProxyMiddleware({
+app.use("/api",createProxyMiddleware({
     target: "http://localhost:5000", // Vite's default port
     changeOrigin: true,
   })

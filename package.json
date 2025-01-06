@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm install -g concurrently nodemon vite && npm install vite",
+    "postinstall": "echo 'Running postinstall'; npm install",
     "server": "nodemon index.js",
     "build-client": "cd client && npm run dev",
-    "start": "concurrently \"npm run server\" \"npm run build-client -- --debug\""
+    "start": "concurrently \"npm run server\" \"npm run build-client\""
   },
   "keywords": [],
   "author": "",
