@@ -74,9 +74,9 @@ app.use('/assets', express.static(path.join(__dirname, 'client', 'public', 'asse
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 // Handle React routing, return all requests to the React app
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client/dist", "index.html"));
-// });
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "index.html"));
+});
 app.use("api",createProxyMiddleware({
     target: "http://localhost:5000", // Vite's default port
     changeOrigin: true,
