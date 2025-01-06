@@ -68,12 +68,14 @@ const unlockPdf = (inputBuffer, password) => {
 };
 
 // Serve static files from the React app's build folder
-app.use(express.static(path.join(__dirname, "client/dist")));
+app.use('/assets', express.static(path.join(__dirname, 'client', 'public', 'assets')));
+
+// app.use(express.static(path.join(__dirname, "client/dist")));
 
 // Handle React routing, return all requests to the React app
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/dist", "index.html"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client/dist", "index.html"));
+// });
 
 // Endpoint to login
 app.post("/login", async (req, res) => {
