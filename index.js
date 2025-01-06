@@ -1,6 +1,7 @@
 require("dotenv").config(); // Load environment variables
 
 const express = require("express");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const multer = require("multer");
@@ -76,8 +77,11 @@ app.use('/assets', express.static(path.join(__dirname, 'client', 'public', 'asse
 // app.get("/", (req, res) => {
 //   res.sendFile(path.join(__dirname, "client/dist", "index.html"));
 // });
-
-// Endpoint to login
+app.use("*",createProxyMiddleware({
+    target: "http://localhost:5173", // Vite's default port
+    changeOrigin: true,
+  })
+);
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
