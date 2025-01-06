@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm install -g concurrently",
-    "server": "nodemon index.js", 
+    "postinstall": "npm install -g concurrently nodemon vite",
+    "server": "nodemon index.js",
     "build-client": "cd client && npm run build",
     "start": "concurrently \"npm run server\" \"npm run build-client\""
   },
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "vite": "^6.0.7"
   }
 }
